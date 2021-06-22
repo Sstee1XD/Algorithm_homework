@@ -1,0 +1,15 @@
+id:1    weight:5        parent:9        lson:-1 rson:-1
+id:2    weight:5        parent:9        lson:-1 rson:-1
+id:3    weight:10       parent:10       lson:-1 rson:-1
+id:4    weight:10       parent:11       lson:-1 rson:-1
+id:5    weight:10       parent:11       lson:-1 rson:-1
+id:6    weight:15       parent:12       lson:-1 rson:-1
+id:7    weight:20       parent:12       lson:-1 rson:-1
+id:8    weight:25       parent:14       lson:-1 rson:-1
+id:9    weight:10       parent:10       lson:1  rson:2
+id:10   weight:20       parent:13       lson:3  rson:9
+id:11   weight:20       parent:13       lson:5  rson:4
+id:12   weight:35       parent:14       lson:6  rson:7
+id:13   weight:40       parent:15       lson:10 rson:11
+id:14   weight:60       parent:15       lson:8  rson:12
+id:15   weight:100      parent:-1       lson:13 rson:14
