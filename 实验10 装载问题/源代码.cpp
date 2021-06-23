@@ -10,15 +10,23 @@ const int N = 1e3 + 7;
 int c[3], m[3], w[N], path[3][N], vis[N];
 int n;
 
+struct Box {
+    int id, w;
+
+    bool operator < (const Box & a) const {
+        return w > a.w;
+    }
+}box[N];
+
 bool dfs(int u) {
     if (u > n) return true;
     for (int i = 1; i <= 2; ++i) {
-        if (c[i] + w[u] > m[i]) continue;
-        c[i] += w[u];
-        path[i][++path[i][0]] = u;
+        if (c[i] + box[u].w > m[i]) continue;
+        c[i] += box[u].w;
+        path[i][++path[i][0]] = box[u].id;
         if (dfs(u + 1)) return true;
         path[i][0]--;
-        c[i] -= w[u];
+        c[i] -= box[u].w;
     }
     return false;
 }
@@ -27,8 +35,10 @@ void solve() {
     scanf("%d", &n);
     for (int i = 1; i <= n; ++i) {
         scanf("%d", &w[i]);
+        box[i] = {i, w[i]};
     }
     scanf("%d %d", &m[1], &m[2]);
+    sort(box + 1, box + 1 + n);
     if (!dfs(1)) {
         puts("ERROR");
         return;
